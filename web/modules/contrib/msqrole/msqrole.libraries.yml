@@ -1,0 +1,11 @@
+msqrole.status:
+  version: 1.x
+  js:
+    js/masquerade-role.js: { }
+  css:
+    theme:
+      css/masquerade-role.css: { }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings

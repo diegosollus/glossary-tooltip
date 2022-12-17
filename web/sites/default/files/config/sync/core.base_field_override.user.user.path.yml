@@ -1,0 +1,19 @@
+uuid: d32c43b8-d028-4937-9b5a-91a49c908bad
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - path
+    - user
+id: user.user.path
+field_name: path
+entity_type: user
+bundle: user
+label: 'Apelido de URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

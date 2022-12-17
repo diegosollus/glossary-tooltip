@@ -1,0 +1,12 @@
+<?php
+
+
+/**
+ * @file
+ * onkos theme file.
+ */
+
+function onkos_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['keys']['#attributes']['placeholder'] = t('Search');
+  $form['actions']['#attributes']['class'][] = 'd-none'; // Change the text on the
+}

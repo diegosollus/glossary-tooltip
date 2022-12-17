@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Update the tooltip css class name to 'tx-tooltip' and 'tx-tooltip-text'.
+*/
+
+function tooltip_taxonomy_update_8101() {
+  $config_factory = \Drupal::configFactory();
+  // All filters.
+  $filters = $config_factory->listAll('filter');
+  if ($filters) {
+    // Find the filter which has allowed html settings.
+    foreach ($filters as $filter) {
+      $filter_setting = $config_factory->getEditable($filter);
+      if ($filter_setting) {
+        $allowed_html = $filter_setting->get('filters.filter_html.settings.allowed_html');
+        // Update the allowed html.
+        if ($allowed_html) {
+          // Replace tooltip with tx-tooltip,
+          // and tooltiptext with tx-tooltip-text.
+          $allowed_html = str_replace('<span class="tooltip tooltiptext">', 
+              '<span class="tx-tooltip tx-tooltip-text">', 
+              $allowed_html);
+          $filter_setting->set('filters.filter_html.settings.allowed_html', $allowed_html);
+          $filter_setting->save(TRUE);
+        }
+      }
+    }
+  }
+}

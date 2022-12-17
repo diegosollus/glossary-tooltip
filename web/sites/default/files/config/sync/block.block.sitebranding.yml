@@ -1,0 +1,23 @@
+uuid: c7379560-41d2-4e6a-93b8-436f48f03443
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - onkos
+id: sitebranding
+theme: onkos
+region: nav_branding
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

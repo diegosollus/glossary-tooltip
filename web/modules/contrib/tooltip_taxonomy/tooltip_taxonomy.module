@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ * Tooltip Taxonomy module help and theme functions.
+ */
+
+// Drupal core
+use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function tooltip_taxonomy_theme($existing, $type, $theme, $path): array {
+  return [
+    'tooltip_taxonomy' => [
+      'variables' => [
+        'tooltip_id' => null,
+        'term_name' => null,
+        'description' => null
+      ]
+    ]
+  ];
+}
+
+/**
+ * Implement hook_entity_display_build_alter().
+ */
+function tooltip_taxonomy_entity_display_build_alter(&$build, $context): void {
+  $entity = $context['entity'];
+
+  // Only content entity need tooltip
+  if ($entity instanceof ContentEntityBase) {
+    $field_type_manager = Drupal::service('tooltip_taxonomy.field_type_manager');
+    $tooltip_manager = Drupal::service('tooltip_taxonomy.tooltip_manager');
+
+    // Append RDF term mappings on displayed taxonomy links
+    foreach ($build as $field_name => $field) {
+      // Only add tooltip to:
+      // - content field
+      // - text field.
+      if ($field_type_manager->isContentField($field_name)
+        && isset($field['#field_type'])
+        && isset($field['#view_mode'])
+        && $field_type_manager->isTextField($field['#field_type'])) {
+
+        $tags = [];
+        foreach ($field as $key => $value) {
+          if (is_int($key) && !empty($value)) {
+            if (!isset($value['#text']) || !isset($value['#format'])) {
+              continue;
+            }
+            // Get the tooltip markup replacement
+            $new_text = $tooltip_manager->addTooltip($field['#view_mode'], $entity, $field_name, $value, $tags);
+            if (!empty($new_text)) {
+              $build[$field_name][$key]['#text'] = $new_text;
+            }
+          }
+        }
+
+        if (!empty($tags)) {
+          $build[$field_name]['#cache']['tags'] = array_merge($field['#cache']['tags'], $tags);
+          // Attach the CSS
+          $build[$field_name]['#attached']['library'][] = 'tooltip_taxonomy/simple_tooltip';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ *
+ * Once a taxonomy term is being,
+ * we need to invalidate all node pages
+ * to apply the changes to tooltip.
+ */
+function tooltip_taxonomy_taxonomy_term_presave(EntityInterface $entity) {
+  // Tooltip manager service
+  $tooltip_manager = Drupal::service('tooltip_taxonomy.tooltip_manager');
+
+  // Only if the vocabulary is used for a tooltip
+  $con_ids = $tooltip_manager->hasTooltip($entity->bundle());
+  if (!empty($con_ids)) {
+    foreach ($con_ids as $id) {
+      // Invalidate node pages in which the vocabulary is used for tooltip
+      Drupal::service('cache_tags.invalidator')->invalidateTags(['tooltip_taxonomy:' . $id]);
+    }
+  }
+}

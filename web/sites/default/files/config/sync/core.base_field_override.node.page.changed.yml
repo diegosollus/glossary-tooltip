@@ -1,0 +1,18 @@
+uuid: 4526c596-fa00-4be3-a255-4c72c111b209
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.page
+id: node.page.changed
+field_name: changed
+entity_type: node
+bundle: page
+label: Alterado
+description: 'A hora em que node foi editado pela última vez.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

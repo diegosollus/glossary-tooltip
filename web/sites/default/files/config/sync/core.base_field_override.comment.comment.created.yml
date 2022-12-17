@@ -1,0 +1,18 @@
+uuid: 9aed5598-2538-4360-abeb-d6fc4b629823
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+id: comment.comment.created
+field_name: created
+entity_type: comment
+bundle: comment
+label: Criado
+description: 'O horário em que o comentário foi criado.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

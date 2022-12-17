@@ -1,0 +1,22 @@
+uuid: f4ef398f-9218-484a-bcc3-1ae7fa28b038
+langcode: pt-br
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - onkos
+_core:
+  default_config_hash: S0Y16qIQfKiOEzWlddOGk3u_BKwAruAheA8VVFfGbLc
+id: onkos_help
+theme: onkos
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

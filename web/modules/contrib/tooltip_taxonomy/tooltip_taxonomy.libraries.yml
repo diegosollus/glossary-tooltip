@@ -1,0 +1,4 @@
+simple_tooltip:
+  css:
+    theme:
+      css/tooltip.css: {}

@@ -1,0 +1,14 @@
+uuid: 1b8edb41-5003-488f-9c55-9882d3a369a1
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Entre em contato'
+recipients:
+  - dev@onkos.com.br
+reply: ''
+weight: 0
+message: 'Sua mensagem foi enviada.'
+redirect: ''

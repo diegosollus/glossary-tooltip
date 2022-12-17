@@ -1,0 +1,25 @@
+uuid: 7a12aa49-5835-4b7b-8c74-d36cbd76bf87
+langcode: pt-br
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - onkos
+id: mainnavigation
+theme: onkos
+region: header_left
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

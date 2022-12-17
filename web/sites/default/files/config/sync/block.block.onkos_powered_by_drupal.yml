@@ -1,0 +1,22 @@
+uuid: ad14624d-33c3-46ad-ab6a-f380d7b18360
+langcode: pt-br
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - onkos
+_core:
+  default_config_hash: 2_xxaOb8b_0AUgYFdJLxIBDDwufyh6YozhGfBd97p38
+id: onkos_powered_by_drupal
+theme: onkos
+region: footer
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

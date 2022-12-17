@@ -1,0 +1,22 @@
+uuid: b59ee28e-3386-4793-b363-342e756191b8
+langcode: pt-br
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - onkos
+_core:
+  default_config_hash: VShtwe72J2j41BJzApoNbs8l554EpngM5RTObxM7yiw
+id: onkos_breadcrumbs
+theme: onkos
+region: header_left
+weight: -7
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

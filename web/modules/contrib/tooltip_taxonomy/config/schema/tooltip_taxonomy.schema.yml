@@ -1,0 +1,44 @@
+tooltip_taxonomy.filter_condition.*:
+  type: config_entity
+  label: 'Filter condition config'
+  mapping:
+    cid:
+      type: string
+      label: 'ID'
+    name:
+      type: label
+      label: 'Condition name'
+    weight:
+      type: integer
+      label: 'Weight'
+    vids:
+      type: sequence
+      label: 'Vocabulary selected'
+      sequence:
+        type: string
+    path:
+      type: sequence
+      label: 'Path of pages'
+      sequence:
+    contentTypes:
+      type: sequence
+      label: 'Content types'
+      sequence:
+    field:
+      type: sequence
+      label: 'Content types'
+      nullable: true
+      sequence:
+        type: string
+    view:
+      type: sequence
+      label: 'View modes'
+      nullable: true
+      sequence:
+        type: string
+    formats:
+      type: sequence
+      label: 'Text formats'
+      nullable: true
+      sequence:
+        type: string

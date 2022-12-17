@@ -1,0 +1,20 @@
+uuid: 7402a95b-ad4e-4912-9345-d525fa3f4ec6
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.article
+id: node.article.menu_link
+field_name: menu_link
+entity_type: node
+bundle: article
+label: 'Link de menu'
+description: 'Link de menu computado para o node (disponível apenas durante a gravação do node).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

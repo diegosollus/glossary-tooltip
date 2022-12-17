@@ -1,0 +1,90 @@
+<?php
+
+use Drupal\Core\Render\Renderer;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function msqrole_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.environment':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Allows you to masquerade as a different role.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function msqrole_theme() {
+  return [
+    'msqrole_status' => [
+      'variables' => [
+        'roles' => NULL,
+        'reset_url' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_user_logout().
+ */
+function msqrole_user_logout($account) {
+  /** @var RoleManager $roleManager */
+  if (!$role_manager = Drupal::service('msqrole.manager')) {
+    return;
+  }
+
+  // Remove data, so on re-login user gets their own roles back.
+  $role_manager->removeData($account->id());
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function msqrole_page_attachments(array &$page) {
+  /**
+   * @var \Drupal\msqrole\RoleManagerInterface $roleManager
+   */
+  if (!$role_manager = Drupal::service('msqrole.manager')) {
+    return;
+  }
+
+  $current_user = \Drupal::currentUser();
+  if (!$role_manager->isActive($current_user->id())) {
+    return;
+  }
+
+  $roles = [];
+  foreach ($current_user->getRoles() as $role) {
+    if ($role === 'authenticated') {
+      continue;
+    }
+    $current = \Drupal\user\Entity\Role::load($role);
+    $roles[$role] = $current->label();
+  }
+
+  $render = [
+    '#theme' => 'msqrole_status',
+    '#roles' => $roles,
+    '#reset_url' => Url::fromRoute('msqrole.reset', [], [
+      'query' => ['destination' => \Drupal::request()->getRequestUri()],
+    ])->toString(),
+    '#cache' => [
+      'max-age' => 0,
+    ],
+  ];
+
+  /** @var Renderer $renderer */
+  $renderer = \Drupal::service('renderer');
+  $settings_js = [
+    'markup' => $renderer->renderPlain($render),
+  ];
+
+  $page['#attached']['drupalSettings']['msqrole'] = $settings_js;
+  $page['#attached']['library'][] = 'msqrole/msqrole.status';
+}

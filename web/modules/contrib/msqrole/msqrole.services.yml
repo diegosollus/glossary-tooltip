@@ -1,0 +1,7 @@
+services:
+  msqrole.manager:
+    class: Drupal\msqrole\RoleManager
+    arguments: [ '@user.data', '@entity_type.manager', '@config.factory' ]
+  current_user:
+    class: Drupal\msqrole\MasqueradeAccountProxy
+    arguments: [ '@event_dispatcher', '@msqrole.manager' ]

@@ -1,0 +1,18 @@
+uuid: 23aa1796-4903-4f0c-8ea8-b46e27045483
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+id: comment.comment.homepage
+field_name: homepage
+entity_type: comment
+bundle: comment
+label: 'Página inicial'
+description: 'O endereço da página inicial do autor do comentário.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: uri

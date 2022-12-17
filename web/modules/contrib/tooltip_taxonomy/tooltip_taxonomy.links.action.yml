@@ -1,0 +1,5 @@
+entity.filter_condition.add_form:
+  route_name: 'entity.filter_condition.add_form'
+  title: 'Add filter condition'
+  appears_on:
+    - entity.tooltip_taxonomy.config

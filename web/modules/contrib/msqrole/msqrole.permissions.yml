@@ -1,0 +1,11 @@
+masquerade role:
+  title: 'Masquerade as a different role'
+  description: 'Allows user to view the website as a different role while still maintaining current user id.'
+
+administer masquerade role:
+  title: 'Administer Masquerade Role settings'
+  description: 'Allows user to change masquerade role settings.'
+  restrict access: true
+
+permission_callbacks:
+  - Drupal\msqrole\DynamicRolePermissions::callback

@@ -1,0 +1,56 @@
+uuid: bb028133-283d-48a3-badb-5ef725f9995c
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - language
+    - node
+    - search
+    - system
+    - user
+  theme:
+    - onkos
+id: onkos_searchform
+theme: onkos
+region: header_right
+weight: 1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: node_search
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
+      authenticated: authenticated
+      content_editor: content_editor
+      administrator: administrator
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      page: page
+  request_path:
+    id: request_path
+    negate: false
+    pages: '*'
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      pt-br: pt-br
+      en: en
+      es: es

@@ -1,0 +1,20 @@
+name: Onkos
+type: theme
+description: This is a sub theme of Boostrap5
+core_version_requirement: ^8 || ^9 || ^10
+
+# Defines the base theme
+base theme: bootstrap5
+
+# Defines libraries group in which we can add CSS/JS.
+libraries:
+  - onkos/global-styling
+
+# Regions, quote the names
+regions:
+  header_left: 'Header Left'
+  header_right: 'Header Right'
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  content: 'Main content'
+  footer: 'Footer'

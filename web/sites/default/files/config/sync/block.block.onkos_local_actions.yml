@@ -1,0 +1,20 @@
+uuid: 17c1642b-54c1-43f6-b3fe-c1a2529fd10d
+langcode: pt-br
+status: false
+dependencies:
+  theme:
+    - onkos
+_core:
+  default_config_hash: MBqG1B5mr5-fPSCDyTR6z2zVTRxZ10XeS_pAw6C7za4
+id: onkos_local_actions
+theme: onkos
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

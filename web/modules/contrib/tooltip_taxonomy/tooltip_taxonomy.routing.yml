@@ -1,0 +1,31 @@
+entity.tooltip_taxonomy.config:
+  path: '/admin/config/content/tooltip_taxonomy'
+  defaults:
+    _entity_list: 'filter_condition'
+    _title: 'Tooltip taxonomy configuration'
+  requirements:
+    _permission: 'administer site configuration,administer filters'
+    
+entity.filter_condition.add_form:
+  path: '/admin/config/content/tooltip_taxonomy/add'
+  defaults:
+    _entity_form: 'filter_condition.add'
+    _title: 'Add condition to the filter'
+  requirements:
+    _permission: 'administer site configuration,administer filters'
+    
+entity.filter_condition.edit_form:
+  path: '/admin/config/content/tooltip_taxonomy/{filter_condition}'
+  defaults:
+    _entity_form: 'filter_condition.edit'
+    _title: 'Edit condition of the filter'
+  requirements:
+    _permission: 'administer site configuration,administer filters'
+    
+entity.filter_condition.delete_form:
+  path: '/admin/config/content/tooltip_taxonomy/{filter_condition}/delete'
+  defaults:
+    _entity_form: 'filter_condition.delete'
+    _title: 'Delete condition of the filter'
+  requirements:
+    _permission: 'administer site configuration,administer filters'

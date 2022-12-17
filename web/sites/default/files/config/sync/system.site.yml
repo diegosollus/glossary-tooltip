@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: pt-br
+uuid: 45e4fc9f-cc9b-4e4c-974c-c1ffdd4cf676
+name: 'Onkos Diagnósticos Moleculares'
+mail: dev@onkos.com.br
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/8
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: pt-br

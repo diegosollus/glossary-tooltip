@@ -1,0 +1,40 @@
+.flex-basis-100 {
+  flex-basis: 100%;
+}
+
+.dialog-off-canvas-main-canvas header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: hsl(0deg 0% 100%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0 0 8px 0;
+}
+
+.dialog-off-canvas-main-canvas main {
+  padding: 0.5rem;
+}
+
+.region-header {
+  /*border-bottom: 1px solid #ccc;*/
+  justify-content: flex-end;
+}
+
+.region-header-right {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.language-switcher-language-url ul.links {
+  margin-bottom: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0;
+}
+
+.language-switcher-language-url ul.links li {
+  margin-right: 0.5rem;
+}

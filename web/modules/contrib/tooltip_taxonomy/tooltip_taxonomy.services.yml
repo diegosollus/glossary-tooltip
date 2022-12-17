@@ -1,0 +1,12 @@
+services:
+  # Filter type manager
+  tooltip_taxonomy.field_type_manager:
+    class: \Drupal\tooltip_taxonomy\Services\FieldTypeManager
+    tags:
+      - { name: tooltip_taxonomy.field_type_manager, priority: 1000 }
+  # Tooltip filter condition manager
+  tooltip_taxonomy.tooltip_manager:
+    class: \Drupal\tooltip_taxonomy\Services\TooltipManager
+    arguments: ['@plugin.manager.condition', '@tooltip_taxonomy.field_type_manager', '@entity_type.manager', '@renderer']
+    tags:
+      - { name: tooltip_taxonomy.tooltip_manager, priority: 1000 }

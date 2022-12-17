@@ -1,0 +1,5 @@
+entity.filter_condition.collection:
+  title: 'Tooltip Taxonomy'
+  parent: system.admin_config_content
+  description: 'Tooltip filter conditions.'
+  route_name: entity.tooltip_taxonomy.config

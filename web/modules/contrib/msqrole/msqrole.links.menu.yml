@@ -1,0 +1,11 @@
+msqrole.form:
+  title: 'Masquerade Role'
+  parent: entity.user.collection
+  description: 'Configure the msqrole module.'
+  route_name: msqrole.form
+
+msqrole.settings_form:
+  title: 'Masquerade Role Settings'
+  parent: user.admin_index
+  description: 'Configure the msqrole module.'
+  route_name: msqrole.settings_form

@@ -1,0 +1,22 @@
+msqrole.settings_form:
+  path: '/admin/config/people/masquerade-role'
+  defaults:
+    _form: '\Drupal\msqrole\Form\MasqueradeRoleSettings'
+    _title: 'Masquerade Role settings'
+  requirements:
+    _permission: 'administer masquerade role'
+
+msqrole.form:
+  path: '/admin/people/masquerade-role'
+  defaults:
+    _form: '\Drupal\msqrole\Form\MasqueradeRoleForm'
+    _title: 'Masquerade as role'
+  requirements:
+    _permission: 'masquerade role'
+
+msqrole.reset:
+  path: '/admin/people/masquerade-role/reset'
+  defaults:
+    _controller: '\Drupal\msqrole\Controller\MasqueradeRoleReset::reset'
+  requirements:
+    _custom_access: '\Drupal\msqrole\Controller\MasqueradeRoleReset::access'
