@@ -11,10 +11,16 @@ Afterwards, it is necessary to run this command from the root of the project to 
 
     docker-compose up -d
 
+VENDOR
+-------------------
+
+    composer install
+
+
 Services exposed outside the environment:
 -------------------
 
 Service|Address outside containers
 -------|--------------------------
-Webserver|[localhost:8000](http://localhost:8000)
-PostgreSQL|**host:** `localhost`<br> **port:** `8004`<br>**user:** `postgres`<br>**password:** `postgres`
+Webserver|[localhost:8080](http://localhost:8080)
+PostgreSQL|**host:** `localhost`<br> **port:** `8004`<br>**user:** `drupal`<br>**password:** `drupal`
